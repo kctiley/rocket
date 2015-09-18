@@ -13,4 +13,9 @@ router.get('/rocket', function(req, res, next) {
 router.get('/rocket/newPlayer', function(req, res, next) {
   res.render('newPlayer', { title: 'Rocket - New Player Sign Up' });
 });
+
+router.get('/rocket/login', function(req, res, next) {
+  res.render('login', { title: 'Rocket - Player Login' });
+});
+
 module.exports = router;
