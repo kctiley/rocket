@@ -10,8 +10,8 @@ router.get('/rocket', function(req, res, next) {
   res.render('index', { title: 'Rocket' });
 });
 
-router.get('/rocket/newPlayer', function(req, res, next) {
-  res.render('newPlayer', { title: 'Rocket - New Player Sign Up' });
+router.get('/rocket/newPlayerSignin', function(req, res, next) {
+  res.render('newPlayerSignin', { title: 'Rocket - New Player Sign Up' });
 });
 
 router.get('/rocket/login', function(req, res, next) {
