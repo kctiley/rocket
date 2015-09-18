@@ -3,6 +3,18 @@ extends layout
 block content
   h1= title
   p
-    a(href='/rocket/newPlayerSignin') New Player
+    a(href='/rocket/signup') New Player
   p 
     a(href='/rocket/login') Login
+  p
+  table
+    thead
+      tr
+        th ID
+        th Name
+    tbody
+      for player in allPlayers
+        tr
+          td= player._id
+          td
+            a(href='/show/' + player._id)= player.name

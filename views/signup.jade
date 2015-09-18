@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  form(action="/rocket/signup", method="post")
+    div
+      p
+       label(for='newPlayerTextBox') Enter new player name
+      input(type="text" name="new_player_name" id="newPlayerTextBox")
+    div
+      input(type="submit" value= "Signin")
