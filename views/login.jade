@@ -2,10 +2,10 @@ extends layout
 
 block content
   h1= title
-  form(action="/rocket/show", method="get")
+  form(action="/rocket/show_user/", method="get")
     div
       p
        label(for='loginPlayerTextBox') Enter your existing player name
-      input(type="text" name="name" id="loginPlayerTextBox")
+      input(type="text" name="name_entered" id="loginPlayerTextBox")
     div
       input(type="submit" value= "Login")
