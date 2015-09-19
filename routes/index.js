@@ -7,8 +7,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Rocket' });
+    playersCollection.find({}, function(err, records){
+    res.render('index', { title: 'Rocket', allPlayers: records});
+  })
 });
+
 
 router.get('/rocket', function(req, res, next) {
   playersCollection.find({}, function(err, records){
@@ -16,37 +19,33 @@ router.get('/rocket', function(req, res, next) {
   })
 });
 
-
-// router.get('/albums', function(req, res, next) {
-//   albumCollection.find({}, function (err, records) {
-//     res.render('albums/index', {allAlbums: records});
-//   });
-// });
-
-
 router.get('/rocket/signup', function(req, res, next) {
   res.render('signup', { title: 'Rocket - New Player Sign Up' });
 });
 
-router.post('/rocket/signup', function(req, res, next) {
-  playersCollection.insert({ name: req.body.new_player_name});
-  res.render('show_user', { title: 'Thank you for joining ', name: req.body.new_player_name + '!'});
+router.post('/rocket/:name', function(req, res, next) {
+  playersCollection.insert({ name: req.params.name});
+  res.render('show_user', { title: 'Thank you for joining ', name: req.params.name+ '!'});
 });
 
 router.get('/rocket/login', function(req, res, next) {
-  res.render('login', { title: 'Logging in as previous user' });
+    res.render('login', { title: 'Logging in as previous user'});  
 });
 
-router.post('/rocket/login', function(req, res, next) {
-  res.render('show_user', { title: 'Hello again ' ,  name: req.body.login_player_name + "! You're back."});
-});
+router.get('/rocket/:name', function(req, res, next){
+  playersCollection.findOne({name: req.params.name}, function(err, record){
+    res.render('show_user', {title: "Welcome back", thePlayer: record})
+  })
+})
 
 
-
-// router.post('/albums', function(req, res, next) {
-//   albumCollection.insert({ name: req.body.album_name });
-//   res.redirect('/albums');
+// router.get('/albums/:id', function(req, res, next) {
+//   albumCollection.findOne({_id: req.params.id}, function (err, record) {
+//     res.render('albums/show', {theAlbum: record});
+//   });
 // });
+
+
 
 
 module.exports = router;
