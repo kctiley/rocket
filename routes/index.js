@@ -7,11 +7,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    playersCollection.find({}, function(err, records){
-    res.render('index', { title: 'Rocket', allPlayers: records});
+  playersCollection.find({}, function(err, records){
+      res.render('index', { title: 'Rocket', allPlayers: records});
   })
 });
-
 
 router.get('/rocket', function(req, res, next) {
   playersCollection.find({}, function(err, records){
@@ -19,6 +18,7 @@ router.get('/rocket', function(req, res, next) {
   })
 });
 
+//signup handling
 router.get('/rocket/signup', function(req, res, next) {
   res.render('signup', { title: 'Rocket - New Player Sign Up' });
 });
@@ -32,28 +32,27 @@ router.post('/rocket/show_user/signup', function(req, res, next) {
   });
 });
 
-
+//login handling
 router.get('/rocket/login', function(req, res, next) {
     res.render('login', { title: 'Logging in as previous user'});  
 });
 
-
 router.post('/rocket/show_user/login', function(req, res, next) {
   console.log("req.body:  " + req.body.name_entered);
-  playersCollection.insert({ name: req.body.name_entered}, function(err, record){
     playersCollection.findOne({name: req.body.name_entered},function(err, record){
-      res.render('show_user', { title: 'Welcome back!!! You are signed in!', thePlayer: record});
-    });  
+      res.render('show_user', { title: 'Welcome back!!! You are signed in!', thePlayer: record}); 
+  });
+});
+
+router.get('/rocket/playGame/:name', function(req, res, next){
+  console.log("Request params:  " + req.params.name);
+  playersCollection.findOne({name:  req.params.name},function(err, record){
+    res.render('playGame', {title: "Game Page", thePlayer: record})
   });
 });
 
 
 
-// router.get('/albums/:id', function(req, res, next) {
-//   albumCollection.findOne({_id: req.params.id}, function (err, record) {
-//     res.render('albums/show', {theAlbum: record});
-//   });
-// });
 
 
 
