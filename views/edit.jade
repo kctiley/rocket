@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  form(action="/rocket/edit/" + thePlayer.name, method="post")
+    div
+      p You may edit player name.
+      input(type="text" name="name_entered" id="newPlayerTextBox")
+    div
+      input(type="submit" value= "Edit")

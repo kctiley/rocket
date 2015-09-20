@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 router.get('/rocket', function(req, res, next) {
   playersCollection.find({}, function(err, records){
     res.render('index', { title: 'Rocket', allPlayers: records});
-  })
+  });
 });
 
 //signup handling
@@ -45,11 +45,31 @@ router.post('/rocket/show_user/login', function(req, res, next) {
 });
 
 router.get('/rocket/playGame/:name', function(req, res, next){
-  console.log("Request params:  " + req.params.name);
+  console.log("Request params name:  " + req.params.name);
   playersCollection.findOne({name:  req.params.name},function(err, record){
-    res.render('playGame', {title: "Game Page", thePlayer: record})
+    res.render('playGame', {title: "Game Page", thePlayer: record});
   });
 });
+
+//edit handling
+router.get('/rocket/edit/:name', function(req, res, next){
+  console.log('Rocket/edit/:name' + req.params.name);
+  playersCollection.findOne({name: req.params.name}, function(err, record){
+    res.render('edit', {title: "Edit player profile", thePlayer: record});
+  });
+});
+
+
+router.post('/rocket/edit/:name', function(req, res, next) {
+  console.log("req.params.name:  " + req.params.name);
+  console.log("req.body.name_entered:  " + req.body.name_entered);
+  playersCollection.update({name: req.params.name}, {name: req.body.name_entered}, function(err, record){
+    playersCollection.findOne({name: req.body.name_entered}, function(err, record){
+      res.render('show_user', { title: 'Your profile has been updated!', thePlayer: record});
+    });  
+  });
+});
+
 
 
 
