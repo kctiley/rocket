@@ -47,7 +47,7 @@ router.post('/rocket/show_user/login', function(req, res, next) {
 router.get('/rocket/playGame/:name', function(req, res, next){
   console.log("Request params name:  " + req.params.name);
   playersCollection.findOne({name:  req.params.name},function(err, record){
-    res.render('playGame', {title: "Game Page", thePlayer: record});
+    res.render('playGame', {title: "Game Page", thePlayer: record, theField: 100});
   });
 });
 

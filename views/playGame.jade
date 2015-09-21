@@ -4,5 +4,21 @@ block content
   h1(id= "megashadow")= title 
   h2 Play Game page: Insert game html and css with js logic
   h3= thePlayer.name
-
-
+  div.content
+    table#gameTable
+      -var yCordinate = ["z", "y", "x", "w", "v", "u", "t", "s", "r", "q", "p", "o", "n", "m", "l", "k", "j", "i", "h", "g", "f", "e", "d", "c", "b", "a"]
+      ul
+        each yval in yCordinate
+          tr
+            -var xCordinate = ["z", "y", "x", "w", "v", "u", "t", "s", "r", "q", "p", "o", "n", "m", "l", "k", "j", "i", "h", "g", "f", "e", "d", "c", "b", "a"]
+            ul
+              each xval in xCordinate
+                td(id= yval + xval)= yval + xval
+      div
+        tr#gameScreenGround
+          - var n = 0
+            ul
+              while n < 26
+                td= "g" + n++
+    h4= thePlayer.name            
+    p= "Enter angle and velocity:"            
