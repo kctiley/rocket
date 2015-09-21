@@ -79,7 +79,7 @@ router.get('/rocket/admin', function(req, res, next){
 
 router.get('/rocket/delete/:_id', function(req, res, next){
   console.log('Delete req.params._id:  ' + req.params._id)
-  playersCollection.remove({_id: req.params._id}, {_id: req.params._id}, function(err, record){
+  playersCollection.remove({_id: req.params._id}, function(err, record){
     playersCollection.find({}, function(err, records){
       res.render('index', { title: 'Rocket', allPlayers: records});
     });

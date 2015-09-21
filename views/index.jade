@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1= title
+  h1(id= "titleFont")= title
   p
     a(href='/rocket/signup') New Player
   p 
@@ -11,9 +11,9 @@ block content
     thead
       tr
         th ID
-        th Name
-        th Games Played
-        th Wins
+        th(id= "nameColumn") Name
+        th(id= "gamesPlayedColumn") Games Played
+        th(id= "winsColumn") Wins
     tbody
       for player in allPlayers
         tr

@@ -6,3 +6,31 @@ body {
 a {
   color: #00B7FF;
 }
+
+table {
+  border: 10px solid green;
+}
+
+td {
+  border: 2px solid #FF00FF;
+  padding: 10px;
+}
+
+#titleFont {
+  font-family: Tahoma;
+  font-size: 80px;
+  font-weight: bold;
+  
+}
+
+#winsColumn {
+  width: 80px;
+}
+
+#gamesPlayedColumn {
+  width: 80px;
+}
+
+#nameColumn {
+  width: 180px;
+}
