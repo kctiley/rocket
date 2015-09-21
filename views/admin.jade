@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  p
+    a(href='/rocket/signup') New Player
+  p 
+    a(href='/rocket/login') Login
+  p
+  table
+    thead
+      tr
+        th ID
+        th Name
+    tbody
+      for player in allPlayers
+        tr
+          td= player._id 
+          td= player.name
+          td .....Games played.....
+          td Wins.......
+          td
+            a(href='/rocket/edit/' + player.name)='Edit'
+          td
+            a(href='/rocket/delete/' + player._id)='Delete'

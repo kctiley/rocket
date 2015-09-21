@@ -70,9 +70,21 @@ router.post('/rocket/edit/:name', function(req, res, next) {
   });
 });
 
+//admin for delete handling
+router.get('/rocket/admin', function(req, res, next){
+  playersCollection.find({}, function(err, records){
+    res.render('admin', { title: 'Rocket - Administration Page', allPlayers: records});
+  });
+});
 
-
-
+router.get('/rocket/delete/:_id', function(req, res, next){
+  console.log('Delete req.params._id:  ' + req.params._id)
+  playersCollection.remove({_id: req.params._id}, {_id: req.params._id}, function(err, record){
+    playersCollection.find({}, function(err, records){
+      res.render('index', { title: 'Rocket', allPlayers: records});
+    });
+  });
+});
 
 
 
