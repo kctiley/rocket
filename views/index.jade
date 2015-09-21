@@ -12,10 +12,12 @@ block content
       tr
         th ID
         th Name
+        th Games Played
+        th Wins
     tbody
       for player in allPlayers
         tr
           td= player._id 
           td= player.name
-          td .....Games played.....
-          td Wins.......
+          td= player.gamesPlayed
+          td=player.gamesWon

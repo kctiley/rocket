@@ -25,7 +25,7 @@ router.get('/rocket/signup', function(req, res, next) {
 
 router.post('/rocket/show_user/signup', function(req, res, next) {
   console.log("req.body:  " + req.body.name_entered);
-  playersCollection.insert({ name: req.body.name_entered}, function(err, record){
+  playersCollection.insert({ name: req.body.name_entered, gamesPlayed: 0, gamesWon: 0}, function(err, record){
     playersCollection.findOne({name: req.body.name_entered},function(err, record){
       res.render('show_user', { title: 'Thank you for signing up!', thePlayer: record});
     });  

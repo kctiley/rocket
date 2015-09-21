@@ -3,8 +3,10 @@ extends layout
 block content
   h1= title
   h2= thePlayer.name
-    h3 
-      a(href="/rocket/playGame/" + thePlayer.name) START
-    h3 
-      a(href="/rocket/edit/" + thePlayer.name) Edit player profile
+  h3= "Games Played: " + thePlayer.gamesPlayed
+  h3= "Games Won: " + thePlayer.gamesWon
+  h3 
+    a(href="/rocket/playGame/" + thePlayer.name) START
+  h3 
+    a(href="/rocket/edit/" + thePlayer.name) Edit player profile
         
