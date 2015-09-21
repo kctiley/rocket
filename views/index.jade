@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1(id= "titleFont")= title
+  h1(id= "megashadow")= title
   p
     a(href='/rocket/signup') New Player
   p 
@@ -10,14 +10,15 @@ block content
   table
     thead
       tr
-        th ID
         th(id= "nameColumn") Name
+        th ID
         th(id= "gamesPlayedColumn") Games Played
         th(id= "winsColumn") Wins
+
     tbody
       for player in allPlayers
         tr
-          td= player._id 
           td= player.name
+          td= player._id 
           td= player.gamesPlayed
           td=player.gamesWon
