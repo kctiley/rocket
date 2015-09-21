@@ -191,7 +191,14 @@ a {
   height: 30px;
 }
 
-#gameTable #td{
+#gameTable #t8{
   background-color: red;
+}
+
+.gameRightCol {
+  background-color: white;
+  border: 2px solid red;
+  width: 200px;
+  height: 600;
 }
  
