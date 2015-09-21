@@ -1,24 +1,26 @@
 extends layout
 
 block content
-  h1(id= "megashadow")= title
-  p
-    a(href='/rocket/signup') New Player
-  p 
-    a(href='/rocket/login') Login
-  p
-  table
-    thead
-      tr
-        th(id= "nameColumn") Name
-        th ID
-        th(id= "gamesPlayedColumn") Games Played
-        th(id= "winsColumn") Wins
-
-    tbody
-      for player in allPlayers
+  div.header
+    h1#megashadow= title
+    p
+      a(href='/rocket/signup') New Player
+    p 
+      a(href='/rocket/login') Login
+  div.content
+    h2 Game stats:
+    table
+      thead
         tr
-          td= player.name
-          td= player._id 
-          td= player.gamesPlayed
-          td=player.gamesWon
+          th(id= "nameColumn") Name
+          th ID
+          th(id= "gamesPlayedColumn") Games Played
+          th(id= "winsColumn") Wins
+
+      tbody
+        for player in allPlayers
+          tr
+            td= player.name
+            td= player._id 
+            td= player.gamesPlayed
+            td=player.gamesWon

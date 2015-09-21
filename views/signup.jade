@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  form(action="/rocket/show_user/signup", method="post")
+  h1(id= "megashadow")= title
+  form(action="/rocket/show_user/signup", method="post", class="center")
     div
       p Enter new player name.  It will be your login name, so make it unique.
       input(type="text" name="name_entered" id="newPlayerTextBox")

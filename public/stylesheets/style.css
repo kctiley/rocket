@@ -1,9 +1,31 @@
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: silver;
-  background-color: black
+  background-color: black;
+ 
 }
+
+.header {
+  margin: 20px 80px 10px 40px;
+  border: 2px solid red;
+  width:100%;
+  height: 200px;
+  top:0px;
+  text-align: center;
+  padding: 50px;
+}
+
+.content {
+  text-align: center;
+  margin: 20px 80px 10px 40px;
+  border: 2px solid yellow;
+  width: 100%;
+  padding: 50px;
+
+}
+
 
 a {
   color: #00B7FF;
@@ -15,7 +37,6 @@ table {
   color: black;
   margin-left: auto;
   margin-right: auto;
-
 }
 
 td {
@@ -23,10 +44,14 @@ td {
   padding: 10px;
 }
 
-#titleFont {
-  font-family: Tahoma;
-  font-size: 80px;
-  font-weight: bold;    
+.center {
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  border: 2px solid red;
+  
+
 }
 
 #winsColumn {
@@ -42,8 +67,15 @@ td {
 }
 
 #megashadow {
-  font: 100px "PublicGothicCircular";
   color: orange;
+  text-shadow: none;
+
+}
+
+#megashadow:after{
+  content: "Rocket";
+  font: 100px "PublicGothicCircular";
+  color: yellow;
   text-shadow:rgb(200,62,87) 1px 1px 0,
   rgb(100, 100,100) 2px 2px 0,
   rgb(100, 100,100) 3px 3px 0,
@@ -147,11 +179,4 @@ td {
   rgb(100, 100,100) 100px 100px 0;
 }
 
-#megashadow:after {
-  content:"Rocket"; 
-  color: yellow;
-  left: 100px;
-  top: 100px;
-  text-shadow: none;
-  position: absolute;
-}
+ 
