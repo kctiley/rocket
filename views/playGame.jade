@@ -12,11 +12,11 @@ block content
         td
           .gameLeftCol
             table#gameTable
-              -var yCordinate = ["z", "y", "x", "w", "v", "u", "t", "s", "r", "q", "p", "o", "n", "m", "l", "k", "j", "i", "h", "g", "f", "e", "d", "c", "b", "a"]
+              -var yCordinate = ["30y","29y","28y", "27y","26y", "25y", "24y", "23y", "22y", "21y", "20y", "19y", "18y", "17y", "16y", "15y", "14y", "13y", "12y", "11y", "10y", "9y", "8y", "7y", "6y", "5y", "4y", "3y", "2y", "1y","0y"]
               ul
                 each yval in yCordinate
                   tr
-                    -var xCordinate = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26"]
+                    -var xCordinate = ["0", "1x", "2x", "3x", "4x", "5x", "6x", "7x", "8x", "9x", "10x", "11x", "12x", "13x", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"]
                     ul
                       each xval in xCordinate
                         td(id= yval + xval)= yval + xval
@@ -34,4 +34,13 @@ block content
         td
           .gameRightCol            
             h4= thePlayer.name            
-            p= "Enter angle and velocity:"            
+              form(action="/rocket/playGame", method="post", class="center")
+                div
+                  p Enter angle from 1 to 90
+                  input(type="text" name="angle_entered" id="newAngleTextBox")
+                  div
+                  p Enter velocity from 1 to 10
+                  input(type="text" name="angle_entered" id="newAngleTextBox")
+                div
+                  input(type="submit" value= "Ignition")
+            
