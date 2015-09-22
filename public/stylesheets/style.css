@@ -197,7 +197,7 @@ a {
 .gameRightCol {
   background-color: blue;
   border: 2px solid navy;
-  width: 240px;
+  width: 100%;
   color: #89C35C;
 
 }
@@ -212,7 +212,7 @@ a {
 img#imgRocket {
     position: absolute;
     left: 100px;
-    top: 889px;
+    top: 700px;
     z-index: 1;
 }
 
@@ -220,7 +220,7 @@ img#imgRocket {
 img#imgMoon {
     position: absolute;
     right: 650px;
-    top: 300px;
+    top: 150px;
     z-index: 1;
 }
  
