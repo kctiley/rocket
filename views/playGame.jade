@@ -33,11 +33,11 @@ block content
             h4= thePlayer.name            
               form(action="/rocket/playGame/" + thePlayer._id, method="post", class="center")
                 div
-                  p Enter angle from 1 to 90
-                  input(type="text" name="angle_entered" id="gameAngle")
+                  p Velocity X axis
+                  input(type="text" name="angle_entered" id="velocityGameX")
                   div
-                  p Enter velocity from 1 to 10
-                  input(type="text" name="angle_entered" id="gameVelocity")
+                  p Velocity Y axis
+                  input(type="text" name="angle_entered" id="velocityGameY")
                 div
                   button(id= "ignitionButton") Ign button
 
