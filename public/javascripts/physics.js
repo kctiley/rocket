@@ -11,23 +11,34 @@ document.getElementById("26y17x").style.backgroundColor = "red";
 //test target table td can enter a line green "TEMPORARILY"
 var target = function(){
 
-  var arrNumsX= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
-  var coordinates = [];
-  var makeCoordinates = function(arrX){  
-    for (var i = 0; i < arrX.length; i++){
-      var x = arrX[i];
-      var y = 0;
-      var yFormula = function(){
-        y = 2 * x +1;    
+
+
+
+  var scale = 1000;
+  var arrTime = [];
+  var makeTimeArr = function(){
+      for (var i = 0; i < 1000; i++){
+          arrTime.push(i);
       }
-      yFormula();
-      if(x > 0 && y > 0 && x < 25 && y < 30){
+  }
+  makeTimeArr();
+
+  var angle = 45;
+  var velocity = 2;
+  var g = 32;
+  var coordinates = [];
+  var makeCoordinates = function(){  
+    for (var t = 0; t < arrTime.length; t++){
+      var x = Math.round((velocity / 1 )* t * Math.cos(angle));
+      var y = Math.round((velocity / 1) * t * Math.sin(angle) - ((1 / (g / (1 * 1))) * t * t));
+
+      if(x > 0 && y > 0 && x < 1000 && y < 1000){
         coordinates.push(y + "y" + x + "x");
       } 
     }
+    return coordinates;
   }
-  makeCoordinates(arrNumsX);
-  console.log(coordinates);
+  makeCoordinates();
 
   var plotLine = function(){
     for (var j = 0; j < coordinates.length; j++){
