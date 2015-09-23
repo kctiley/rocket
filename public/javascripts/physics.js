@@ -41,10 +41,10 @@ var target = function(){
 
   var plotLine = function(){
     for (var j = 0; j < coordinates.length; j++){
-      document.getElementById(coordinates[j]).style.backgroundColor = "green";debugger
+      document.getElementById(coordinates[j]).style.backgroundColor = "green";
     }  
   }
-  plotLine();debugger
+  plotLine();
 }
 var click = document.getElementById('ignitionButton');
 click.addEventListener('click', target);
