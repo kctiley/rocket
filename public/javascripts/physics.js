@@ -30,7 +30,7 @@ var target = function(){
   
     for (var i = 0; i < arrNumsX.length; i++){
         if((arrNumsX[i] > 0) && ((arrNumsX[i] * 2) + 1) > 0 && (arrNumsX[i] < 25) && ((arrNumsX[i] * 2) + 1) < 25)
-            coordinates.push(arrNumsX[i] + "y" + (arrNumsX[i] * 2 + 1) + "x"); 
+            coordinates.push(((arrNumsX[i] * 2) + 1) + "y" + arrNumsX[i] + "x"); 
     }
   }
   makeCoordinates();
