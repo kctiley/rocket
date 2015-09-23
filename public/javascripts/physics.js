@@ -2,7 +2,7 @@
 console.log('PHYSICS JS.... ')
 
 //test target table td is initially red
-document.getElementById("26y17x").style.backgroundColor = "red";
+document.getElementById("84y60x").style.backgroundColor = "red";
 
 
 // var velocityX = document.getElementById("velocityGameX").value; debugger
@@ -14,17 +14,17 @@ var target = function(){
 
 
 
-  var scale = 1000;
+  var scale = 400;
   var arrTime = [];
   var makeTimeArr = function(){
-      for (var i = 0; i < 1000; i++){
+      for (var i = 0; i < scale; i++){
           arrTime.push(i);
       }
   }
   makeTimeArr();
 
-  var angle = 45;
-  var velocity = 2;
+  var angle = 45.24;
+  var velocity = 4.6;
   var g = 32;
   var coordinates = [];
   var makeCoordinates = function(){  
@@ -32,7 +32,7 @@ var target = function(){
       var x = Math.round((velocity / 1 )* t * Math.cos(angle));
       var y = Math.round((velocity / 1) * t * Math.sin(angle) - ((1 / (g / (1 * 1))) * t * t));
 
-      if(x > 0 && y > 0 && x < 1000 && y < 1000){
+      if(x > 0 && y > 0 && x < scale && y < scale){
         coordinates.push(y + "y" + x + "x");
       } 
     }
@@ -42,7 +42,7 @@ var target = function(){
 
   var plotLine = function(){
     for (var j = 0; j < coordinates.length; j++){
-      document.getElementById(coordinates[j]).style.backgroundColor = "green";
+      document.getElementById(coordinates[j]).style.backgroundColor = "white";
     }  
   }
   plotLine();

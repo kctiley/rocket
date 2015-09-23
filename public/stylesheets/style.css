@@ -187,7 +187,6 @@ a {
 
 #gameScreenGround td{
   background-color: #89C35C;
-  height: 30px;
 }
 
 #gameTable #c21{
@@ -212,7 +211,7 @@ a {
 img#imgRocket {
     position: absolute;
     left: 100px;
-    top: 700px;
+    top: 750px;
     z-index: 1;
 }
 
