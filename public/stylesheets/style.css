@@ -175,23 +175,16 @@ a {
 .gameLeftCol #gameTable {
   /*background-color: white;*/
   background: linear-gradient(45deg, #BDEDFF, #151B54);
-  height: 800px;
+  height: 780px;
   width: 1000px;
 }
 
 #gameTable td{
  font-size: 2px;
-/* background-color: #ADD8E6;*/
+/*background-color: #ADD8E6;*/*/
  color:black;
 }
 
-#gameScreenGround td{
-  background-color: #89C35C;
-}
-
-#gameTable #c21{
-  background-color: red;
-}
 
 .gameRightCol {
   background-color: blue;
@@ -218,8 +211,18 @@ img#imgRocket {
 
 img#imgMoon {
     position: absolute;
-    right: 650px;
-    top: 150px;
+    right: 550px;
+    top: 70px;
     z-index: 1;
 }
  
+/*
+img#imgOcean {
+    position: absolute;
+    right: 298px;
+    top: 845px;
+    z-index: 1;
+}
+*/
+
+

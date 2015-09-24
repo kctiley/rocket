@@ -2,7 +2,37 @@
 console.log('PHYSICS JS.... ')
 
 //test target table td is initially red
-document.getElementById("84y60x").style.backgroundColor = "red";
+//document.getElementById("84y60x").style.backgroundColor = "red";
+ 
+
+var moonCoordArr = [];
+var makeMoon = function(centerX, centerY, h, w){
+  for (var i = -h; i < h; i++){
+    var x = centerX + i;
+    for (var j = -w; j < w; j++){
+      var y = centerY + j;
+      moonCoordArr.push(y + "y" + x + "x");
+    }
+  }
+
+  var addToDom = function(){
+    for (var i = 0; i < moonCoordArr.length; i++){
+      var each = moonCoordArr[i];
+      document.getElementById(each).style.backgroundColor = "white";
+    }
+  }
+  addToDom();
+
+}
+
+makeMoon(90, 140, 1, 3);
+makeMoon(94, 140, 3, 1);
+makeMoon(85, 140, 4, 1);
+
+
+
+
+//   document.getElementById("84y60x").style.backgroundColor = "red";
 
 
 // var velocityX = document.getElementById("velocityGameX").value; debugger
@@ -10,9 +40,6 @@ document.getElementById("84y60x").style.backgroundColor = "red";
 
 //test target table td can enter a line green "TEMPORARILY"
 var target = function(){
-
-
-
 
   var scale = 400;
   var arrTime = [];
@@ -42,7 +69,7 @@ var target = function(){
 
   var plotLine = function(){
     for (var j = 0; j < coordinates.length; j++){
-      document.getElementById(coordinates[j]).style.backgroundColor = "white";
+      document.getElementById(coordinates[j]).style.backgroundColor = "yellow";
     }  
   }
   plotLine();
