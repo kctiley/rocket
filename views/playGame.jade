@@ -21,17 +21,27 @@ block content
               td(background="/images/grass.jpg") grass
               td(background="/images/ocean.jpeg") water
             |            
-        td(style='background-color: black; color: #5dff4f; width: 30%; font-family: VT323; font-size: 26px')            
+        td(style='background-color: black; color: #5dff4f; width: 30%; font-family: VT323; font-size: 26px; text-align: left')            
           h4= "Player name:    " + thePlayer.name 
-            form(action="/rocket/playGame/" + thePlayer._id, method="post", class="center")
-              div
-                p(style='font-size: 20px') Enter angle(43 to 46):     
-                  input(type="text" name="angle_entered" id="velocityGameX" style='background-color: white; border: 1px solid #5dff4f, font-color: white')
-              div
-                p(style='font-size: 20px') Enter velocity(3 to 6):
-                  input(type="text" name="angle_entered" id="velocityGameY")
-              div
-                button(id= "ignitionButton" style='background-color: red; font-size: 26px; height: 100px; width: 100px; moz-border-radius: 50px; -webkit-border-radius: 50px') Launch
+          p Current conditions
+            ul
+              li(style='font-size: 20px') Wind speed is currently: 20km/hr
+              li(style='font-size: 20px') Distance to Moon: 384,403 km
+              li(style='font-size: 20px') Distance to satellite 20,200 kilometres, which yields an orbital period of 12 hours  
+
+          form(action="/rocket/playGame/" + thePlayer._id, method="post", class="center")
+            table
+              tr
+                td(style='font-size: 20px') Enter angle(43.00 to 46.00):     
+                td(style='font-size: 20px')
+                  input(type="text" name="angle_entered" id="angleGameX" style='height: 16px; width: 50%; background-color: white; border: 1px solid #5dff4f, font-color: white')
+              tr
+                td(style='font-size: 20px') Enter velocity(3 to 6):
+                td(style='font-size: 20px')
+                  input(type="text" name="velocity_entered" id="velocityGame")
+              tr(style='text-align: center')
+                td
+                  button(id= "ignitionButton" style='height: 16px; background-color: red; font-size: 26px; height: 100px; width: 100px; moz-border-radius: 50px; -webkit-border-radius: 50px') Launch
 
 
 
