@@ -78,6 +78,11 @@ var click = document.getElementById('ignitionButton');
 click.addEventListener('click', target);
 
 
+function updateAngleKnobText(val) {
+      document.getElementById('angleKnobText').value=val; 
+    }
+
+
 
 
 

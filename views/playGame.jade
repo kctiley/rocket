@@ -39,6 +39,25 @@ block content
                 td(style='font-size: 20px') Enter velocity(3 to 6):
                 td(style='font-size: 20px')
                   input(type="text" name="velocity_entered" id="velocityGame")
+              tr
+                td
+                  section#main
+                    div#bars
+                      div#control
+                        div.knob
+                          img(id= "knob" src='/images/knob.png',  width='80', height='80')
+              tr
+                td Angle
+                  input(id='angleKnobInput', type='range',  min='42.0', max='47.0', step='0.01', onchange='updateAngleKnobText(this.value);')
+                td
+                  input(id='angleKnobText', type='text', value= 'angle 45', size='8')
+              tr
+                td Velocity
+                  input(type='range', min='2.0', max='7.0') 
+                td
+                  input(type='text', value= 'velocity 3.0', size='8')      
+
+                     
               tr(style='text-align: center')
                 td
                   button(id= "ignitionButton" style='height: 16px; background-color: red; font-size: 26px; height: 100px; width: 100px; moz-border-radius: 50px; -webkit-border-radius: 50px') Launch
