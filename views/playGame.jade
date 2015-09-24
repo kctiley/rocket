@@ -48,14 +48,14 @@ block content
                           img(id= "knob" src='/images/knob.png',  width='80', height='80')
               tr
                 td Angle
-                  input(id='angleKnobInput', type='range',  min='42.0', max='47.0', step='0.01', onchange='updateAngleKnobText(this.value);')
+                  input(id='angleSlideInput', type='range',  min='42.0', max='47.0', step='0.01', onchange='updateAngleText(this.value);')
                 td
-                  input(id='angleKnobText', type='text', value= 'angle 45', size='8')
+                  input(id='angleText', type='text', value= 'angle 45', size='8')
               tr
                 td Velocity
-                  input(type='range', min='2.0', max='7.0') 
+                  input(id='velocitySlideInput', type='range', min='2.0', max='7.0', step='0.1', onchange='updateVelocityText(this.value);') 
                 td
-                  input(type='text', value= 'velocity 3.0', size='8')      
+                  input(id='velocityText',type='text', value= 'velocity 3.0', size='8')      
 
                      
               tr(style='text-align: center')
