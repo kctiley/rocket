@@ -34,6 +34,8 @@ $(function(){
     snap : 10,
     value: 154,
     turn : function(ratio){
+      document.getElementById('knobText').value=ratio; 
+      console.log('Ration:  ' + ratio);
       numBars = Math.round(colorBars.length*ratio);
 
       // Update the dom only when the number of active bars

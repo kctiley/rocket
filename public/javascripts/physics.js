@@ -88,6 +88,10 @@ function updateVelocityText(val) {
     }
 
 
+function updateKnobText(val) {
+      document.getElementById('knobText').value=val; 
+    }
+
 
 
 
