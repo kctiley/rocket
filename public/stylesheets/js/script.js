@@ -35,7 +35,7 @@ $(function(){
     value: 154,
     turn : function(ratio){
       document.getElementById('knobText').value = Math.round(ratio * 700); 
-      console.log('Ration:  ' + ratio);
+      console.log('Ratio from knob:  ' + ratio);
       numBars = Math.round(colorBars.length*ratio);
 
       // Update the dom only when the number of active bars
