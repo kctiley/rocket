@@ -15,6 +15,8 @@ body {
   padding: 50px;
 }
 
+font-family: 'VT323', ;
+
 .content {
   text-align: center;
   margin: 20px 80px 10px 80px;
@@ -172,35 +174,6 @@ a {
   rgb(100, 100,100) 100px 100px 0;
 }
 
-.gameLeftCol #gameTable {
-  /*background-color: white;*/
-  background: linear-gradient(45deg, #BDEDFF, #151B54);
-  height: 780px;
-  width: 1000px;
-}
-
-#gameTable td{
- font-size: 2px;
-/*background-color: #ADD8E6;*/*/
- color:black;
-}
-
-
-.gameRightCol {
-  background-color: blue;
-  border: 2px solid navy;
-  width: 100%;
-  color: #89C35C;
-
-}
-
-.gameLeftCol {
-  background-color: black;
-  border: 2px solid white;
-  width: 1010px;
-  height: 850px
-}
-
 img#imgRocket {
     position: absolute;
     left: 100px;
@@ -248,15 +221,5 @@ img#imgMoon {
   opacity:1;
 }
 
-
- 
-/*
-img#imgOcean {
-    position: absolute;
-    right: 298px;
-    top: 845px;
-    z-index: 1;
-}
-*/
 
 
