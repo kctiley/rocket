@@ -4,10 +4,10 @@ block content
   .content
     img( id= "imgRocket" src='/images/Magnum_Booster_Rocket.png',  width='100', height='100')
     img(id= "imgMoon" src='/images/moon.png',  width='50', height='50')
-    table(style='width: 100%')
+    table(style='width: 100%;background-color: #333333')
       tr
         td(style='width: 70%')
-          table(style='width: 100%; border: 1px solid white; background: linear-gradient(0deg, #BDEDFF, black)')
+          table(style='width: 100%; border: 8px solid black; background: linear-gradient(0deg, #BDEDFF, black)')
             -var yCordinate = ["200y", "199y", "198y", "197y", "196y", "195y", "194y", "193y", "192y", "191y", "190y", "189y", "188y", "187y", "186y", "185y", "184y", "183y", "182y", "181y", "180y", "179y", "178y", "177y", "176y", "175y", "174y", "173y", "172y", "171y", "170y", "169y", "168y", "167y", "166y", "165y", "164y", "163y", "162y", "161y", "160y", "159y", "158y", "157y", "156y", "155y", "154y", "153y", "152y", "151y", "150y", "149y", "148y", "147y", "146y", "145y", "144y", "143y", "142y", "141y", "140y", "139y", "138y", "137y", "136y", "135y", "134y", "133y", "132y", "131y", "130y", "129y", "128y", "127y", "126y", "125y", "124y", "123y", "122y", "121y", "120y", "119y", "118y", "117y", "116y", "115y", "114y", "113y", "112y", "111y", "110y", "109y", "108y", "107y", "106y", "105y", "104y", "103y", "102y", "101y", "100y", "99y", "98y", "97y", "96y", "95y", "94y", "93y", "92y", "91y", "90y", "89y", "88y", "87y", "86y", "85y", "84y", "83y", "82y", "81y", "80y", "79y", "78y", "77y", "76y", "75y", "74y", "73y", "72y", "71y", "70y", "69y", "68y", "67y", "66y", "65y", "64y", "63y", "62y", "61y", "60y", "59y", "58y", "57y", "56y", "55y", "54y", "53y", "52y", "51y", "50y", "49y", "48y", "47y", "46y", "45y", "44y", "43y", "42y", "41y", "40y", "39y", "38y", "37y", "36y", "35y", "34y", "33y", "32y", "31y", "30y", "29y", "28y", "27y", "26y", "25y", "24y", "23y", "22y", "21y", "20y", "19y", "18y", "17y", "16y", "15y", "14y", "13y", "12y", "11y", "10y", "9y", "8y", "7y", "6y", "5y", "4y", "3y", "2y", "1y", "0y"]
             ul
               each yval in yCordinate
@@ -16,12 +16,11 @@ block content
                   ul
                     each xval in xCordinate
                       td(id= yval + xval)
-          table(style='width: 100%')
-            tr
-              td(background="/images/grass.jpg") grass
-              td(background="/images/ocean.jpeg") water
-            |            
-        td(style='background-color: black; color: #5dff4f; width: 30%; font-family: VT323; font-size: 26px; text-align: left; padding-top: 1px')            
+            ul
+              tr
+                td(background="/images/grass.jpg", colspan='75' style='height: 30px') grass
+                td(background="/images/ocean.jpeg", colspan='125') water            
+        td(style='background-color: #333333; color: #5dff4f; width: 30%; font-family: VT323; font-size: 26px; text-align: left; padding-top: 1px')            
           p= "Player name:    " + thePlayer.name 
           p Current conditions
             ul
@@ -30,19 +29,19 @@ block content
               li(style='font-size: 20px') Distance to satellite 20,200 kilometres, which yields an orbital period of 12 hours  
 
           form(action="/rocket/playGame/" + thePlayer._id, method="post", class="center")
-            table(style='padding-top: 20px; padding-bottom: 60px; border: 1px solid red; width: 100%')
+            table(style='padding-top: 20px; background-color: #191919; padding-bottom: 60px; border: 1px solid white; width: 100%')
               tr
                 td Velocity
                   section#main
                     div#bars
                       div#control
-                    tr
-                      td(style='text-align: right') 
+                td(style='text-align: right') 
                         input(id="knobText", type='text', value= '369', size='8', style='height: 20px; padding-right: 20px; font-size: 20px; font-family: VT323')
               tr
                 td(style='padding-top: 20px; padding-bottom: 20px; padding-right: 20px') Angle
                   div
                     input(id='angleSlideInput', type='range',  min='44.0', max='46.0', step='0.01', onchange='updateAngleText(this.value);')
+                td  
                   div(style='text-align: right')
                     input(id='angleText', type='text', value= '45', size='12', style='height: 20px; font-size: 20px; font-family: VT323; text-align:center')                     
               tr
