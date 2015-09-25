@@ -1,47 +1,36 @@
+console.log('PHYSICS JS.... ') 
 
-console.log('PHYSICS JS.... ')
-
-//test target table td is initially red
-//document.getElementById("84y60x").style.backgroundColor = "red";
- 
-
-var moonCoordArr = [];
-var makeMoon = function(centerX, centerY, h, w){
-  for (var i = -h; i < h; i++){
+//Makes expanded array of coordinates from random centers generated
+var targetCoordinatesArray = [];
+var makeTargetAndAddToDom = function(centerX, centerY){
+  for (var i = -4; i < 4; i++){
     var x = centerX + i;
-    for (var j = -w; j < w; j++){
+    for (var j = -4; j < 4; j++){
       var y = centerY + j;
-      moonCoordArr.push(y + "y" + x + "x");
+      targetCoordinatesArray.push(y + "y" + x + "x");
     }
   }
 
   var addToDom = function(){
-    for (var i = 0; i < moonCoordArr.length; i++){
-      var each = moonCoordArr[i];
+    for (var i = 0; i < targetCoordinatesArray.length; i++){
+      var each = targetCoordinatesArray[i];
       document.getElementById(each).style.backgroundColor = "white";
     }
   }
   addToDom();
-
+}
+var genCenterXY = [];
+var targetCenterGenerator = function(){
+  genCenterXY.push(Math.floor(Math.random() * (140 - 70) + 70));
+  genCenterXY.push(Math.floor(Math.random() * (180 - 100) + 100));
 }
 
-makeMoon(90, 140, 1, 3);
-makeMoon(94, 140, 3, 1);
-makeMoon(85, 140, 4, 1);
+targetCenterGenerator();
+makeTargetAndAddToDom(genCenterXY[0], genCenterXY[1]);
 
-
-
-
-//   document.getElementById("84y60x").style.backgroundColor = "red";
-
-
-// var velocityX = document.getElementById("velocityGameX").value; debugger
-// var velocityY = document.getElementById("velocityGameY").value;
-
-//test target table td can enter a line green "TEMPORARILY"
-var target = function(){
-
-  var scale = 400;
+//Plots trajectory and launches based on knobText and angleText inputs
+var launch = function(){
+  var scale = 400;//CHECK THIS TO SEE IF WORKING OR IF NOT EVEN NEEDED(PROB NOT?)
   var arrTime = [];
   var makeTimeArr = function(){
       for (var i = 0; i < scale; i++){
@@ -78,24 +67,10 @@ var target = function(){
   
   plotLine();
 }
+
+//Listens for Launch button
 var click = document.getElementById('ignitionButton');
-click.addEventListener('click', target);
-
-
-function updateAngleText(val) {
-      document.getElementById('angleText').value=val; 
-    }
-
-
-function updateVelocityText(val) {
-      document.getElementById('velocityText').value=val; 
-    }
-
-
-function updateKnobText(val) {
-      document.getElementById('knobText').value=val;
-      // document.getElementById('bars').value= val;
-    }
+click.addEventListener('click', launch);
 
 
 
