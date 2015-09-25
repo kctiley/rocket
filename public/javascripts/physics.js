@@ -30,14 +30,14 @@ makeTargetAndAddToDom(genCenterXY[0], genCenterXY[1]);
 
 //Plots trajectory and launches based on knobText and angleText inputs
 var launch = function(){
-  var scale = 400;//CHECK THIS TO SEE IF WORKING OR IF NOT EVEN NEEDED(PROB NOT?)
-  var arrTime = [];
-  var makeTimeArr = function(){
-      for (var i = 0; i < scale; i++){
-          arrTime.push(i);
+  var screenSize = 400;//CHECK THIS TO SEE IF WORKING OR IF NOT EVEN NEEDED(PROB NOT?)
+  var arrOfScreenSizes = [];
+  var makeScreenSizeArr = function(){
+      for (var i = 0; i < screenSize; i++){
+          arrOfScreenSizes.push(i);
       }
   }
-  makeTimeArr();
+  makeScreenSizeArr();
 
   var velocity = document.getElementById('knobText').value / 100;
   console.log('KnobText value divided by 100:...........' + velocity);
@@ -46,26 +46,25 @@ var launch = function(){
 
   var g = 32;
   var coordinates = [];
-  var makeCoordinates = function(){  
-    for (var t = 0; t < arrTime.length; t++){
+  var makeTrajectoryCoordinates = function(){  
+    for (var t = 0; t < arrOfScreenSizes.length; t++){
       var x = Math.round((velocity / 1 )* t * Math.cos(angle));
       var y = Math.round((velocity / 1) * t * Math.sin(angle) - ((1 / (g / (1 * 1))) * t * t));
 
-      if(x > 0 && y > 0 && x < scale && y < scale){
+      if(x > 0 && y > 0 && x < screenSize && y < screenSize){
         coordinates.push(y + "y" + x + "x");
       } 
     }
     return coordinates;
   }
-  makeCoordinates();
+  makeTrajectoryCoordinates();
 
-  var plotLine = function(){
+  var addTrajectoryToDom = function(){
     for (var j = 0; j < coordinates.length; j++){
       document.getElementById(coordinates[j]).style.backgroundColor = "yellow";
     }  
-  }
-  
-  plotLine();
+  }  
+  addTrajectoryToDom();
 }
 
 //Listens for Launch button
