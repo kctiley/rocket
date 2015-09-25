@@ -89,7 +89,8 @@ function updateVelocityText(val) {
 
 
 function updateKnobText(val) {
-      document.getElementById('knobText').value=val; 
+      document.getElementById('knobText').value=val;
+      // document.getElementById('bars').value= val/10;
     }
 
 
