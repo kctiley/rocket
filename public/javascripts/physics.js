@@ -51,8 +51,9 @@ var target = function(){
   makeTimeArr();
 
   var velocity = document.getElementById('knobText').value / 100;
-  console.log('KnobText value divided by 100:...........' + velocity)
-  var angle = 45.24;
+  console.log('KnobText value divided by 100:...........' + velocity);
+  var angle = document.getElementById('angleText').value / 1;
+  console.log('angleText value:...........' + angle);
 
   var g = 32;
   var coordinates = [];
@@ -74,7 +75,7 @@ var target = function(){
       document.getElementById(coordinates[j]).style.backgroundColor = "yellow";
     }  
   }
-  console.log('Are my var showing?..........')
+  
   plotLine();
 }
 var click = document.getElementById('ignitionButton');
@@ -93,7 +94,7 @@ function updateVelocityText(val) {
 
 function updateKnobText(val) {
       document.getElementById('knobText').value=val;
-      document.getElementById('bars').value= val;
+      // document.getElementById('bars').value= val;
     }
 
 

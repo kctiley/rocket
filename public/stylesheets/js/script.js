@@ -34,7 +34,7 @@ $(function(){
     snap : 10,
     value: 154,
     turn : function(ratio){
-      document.getElementById('knobText').value = Math.round(ratio * 700); 
+      document.getElementById('knobText').value = Math.round(ratio * 1000); 
       console.log('Ratio from knob:  ' + ratio);
       numBars = Math.round(colorBars.length*ratio);
 
