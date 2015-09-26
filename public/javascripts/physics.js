@@ -77,7 +77,35 @@ var launch = function(){
       var slicedArr = arr2;
 
       if(slicedArr.length == 0){
-          console.log(coordsMatchArr);debugger
+        if (coordsMatchArr.length == 0){
+          
+          console.log(coordsMatchArr);
+
+          var para = document.createElement("h1");
+          var node = document.createTextNode("Missed the target...");
+          para.appendChild(node);
+          var element = document.getElementById("gameScreen");
+          element.appendChild(para);
+          para.style.color = 'red';
+          para.style.position = 'absolute';
+          para.style.top = '500px';
+          para.style.left = '380px';
+
+
+        }
+        else{
+
+          var para = document.createElement("h1");
+          var node = document.createTextNode("Success!!!");
+          para.appendChild(node);
+          var element = document.getElementById("gameScreen");
+          element.appendChild(para);
+          para.style.color = 'green';
+          para.style.position = 'absolute';
+          para.style.top = '500px';
+          para.style.left = '380px';
+
+        }
       }
       else {
           for (var i = 0; i < fixedArr.length; i++){
@@ -87,14 +115,16 @@ var launch = function(){
           }
           return checkMatch(fixedArr, slicedArr.slice(1))
       }  
-  }
-  checkMatch(targetCoordinatesArray, trajectoryCoordinates);
+  };
+  //checkMatch(targetCoordinatesArray, trajectoryCoordinates);
 
+  var doThis = window.setTimeout(function(){checkMatch(targetCoordinatesArray, trajectoryCoordinates); }, 2000);
+  doThis();
  
 }
 
 //Listens for Launch button
-var click = document.getElementById('ignitionButton');
+var click = document.getElementById('launchButton');
 click.addEventListener('click', launch);
 
 //Listens for angle value

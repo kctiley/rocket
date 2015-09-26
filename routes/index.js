@@ -86,12 +86,12 @@ router.get('/rocket/delete/:_id', function(req, res, next){
   });
 });
 
-router.post("/rocket/playGame/:_id", function(req, res, next){
-  console.log('Route from playGame post working....');
-  playersCollection.findOne({_id: req.params._id}, function(err, record){
-    res.render('playGame', {title: "Fired!", thePlayer: record})
-  })
-})
+// router.post("/rocket/playGame/:_id", function(req, res, next){
+//   console.log('Route from playGame post working....');
+//   playersCollection.findOne({_id: req.params._id}, function(err, record){
+//     res.render('playGame', {title: "Fired!", thePlayer: record})
+//   })
+// })
 
 
 
