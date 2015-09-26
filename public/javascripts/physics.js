@@ -28,9 +28,13 @@ var targetCenterGenerator = function(){
 targetCenterGenerator();
 makeTargetAndAddToDom(genCenterXY[0], genCenterXY[1]);
 
+//Trajectory hits target
+// var targetHitCoordinates = function(centerX, centerY){
+
+// }
 //Plots trajectory and launches based on knobText and angleText inputs
 var launch = function(){
-  var screenSize = 400;//CHECK THIS TO SEE IF WORKING OR IF NOT EVEN NEEDED(PROB NOT?)
+  var screenSize = 200;//CHECK THIS TO SEE IF WORKING OR IF NOT EVEN NEEDED(PROB NOT?)
   var arrOfScreenSizes = [];
   var makeScreenSizeArr = function(){
       for (var i = 0; i < screenSize; i++){
@@ -45,31 +49,58 @@ var launch = function(){
   console.log('angleText value:...........' + angle);
 
   var g = 32;
-  var coordinates = [];
-  var makeTrajectoryCoordinates = function(){  
+  var trajectoryCoordinates = [];
+  var maketrajectoryCoordinates = function(){  
     for (var t = 0; t < arrOfScreenSizes.length; t++){
       var x = Math.round((velocity / 1 )* t * Math.cos(angle));
       var y = Math.round((velocity / 1) * t * Math.sin(angle) - ((1 / (g / (1 * 1))) * t * t));
 
       if(x > 0 && y > 0 && x < screenSize && y < screenSize){
-        coordinates.push(y + "y" + x + "x");
+        trajectoryCoordinates.push(y + "y" + x + "x");
       } 
     }
-    return coordinates;
+    return trajectoryCoordinates;
   }
-  makeTrajectoryCoordinates();
+  maketrajectoryCoordinates();
 
   var addTrajectoryToDom = function(){
-    for (var j = 0; j < coordinates.length; j++){
-      document.getElementById(coordinates[j]).style.backgroundColor = "yellow";
+    for (var j = 0; j < trajectoryCoordinates.length; j++){
+      document.getElementById(trajectoryCoordinates[j]).style.backgroundColor = 'red';
     }  
   }  
   addTrajectoryToDom();
+  //Check coordinates for matching in trajectoryCoordinates and targetCoordinatesArray
+  
+  var coordsMatchArr = [];
+  var checkMatch = function(arr1, arr2){
+      var fixedArr = arr1;
+      var slicedArr = arr2;
+
+      if(slicedArr.length == 0){
+          console.log(coordsMatchArr);debugger
+      }
+      else {
+          for (var i = 0; i < fixedArr.length; i++){
+              if (fixedArr[i] == slicedArr[0]){
+                  coordsMatchArr.push(fixedArr[i])
+              }
+          }
+          return checkMatch(fixedArr, slicedArr.slice(1))
+      }  
+  }
+  checkMatch(targetCoordinatesArray, trajectoryCoordinates);
+
+ 
 }
 
 //Listens for Launch button
 var click = document.getElementById('ignitionButton');
 click.addEventListener('click', launch);
+
+//Listens for angle value
+function updateAngleText(val) {
+  document.getElementById('angleText').value=val; 
+}
 
 
 
