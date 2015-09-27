@@ -69,8 +69,9 @@ var launch = function(){
     }  
   }  
   addTrajectoryToDom();
-  //Check coordinates for matching in trajectoryCoordinates and targetCoordinatesArray
+
   
+  //Check coordinates for matching in trajectoryCoordinates and targetCoordinatesArray
   var coordsMatchArr = [];
   var checkMatch = function(arr1, arr2){
       var fixedArr = arr1;
@@ -99,7 +100,7 @@ var launch = function(){
         else{
 
           var para = document.createElement("h1");
-          var node = document.createTextNode("Success!!!");
+          var node = document.createTextNode("Target Success!!!");
           para.appendChild(node);
           var element = document.getElementById("gameScreen");
           element.appendChild(para);
@@ -129,9 +130,20 @@ var launch = function(){
   //checkMatch(targetCoordinatesArray, trajectoryCoordinates);
 
   var doThis = window.setTimeout(function(){checkMatch(targetCoordinatesArray, trajectoryCoordinates); }, 2000);
-  doThis();
+  //doThis();   This is not needed..?
+
+  var removeTrajectoryToDom = window.setTimeout(function(){
+    for (var j = 0; j < trajectoryCoordinates.length; j++){
+      document.getElementById(trajectoryCoordinates[j]).style.backgroundColor = 'transparent';
+    }
+    for (var i = 0; i < coordsMatchArr.length; i++){ 
+    document.getElementById(coordsMatchArr[i]).style.backgroundColor = 'purple';
+    }
+  }, 3000);//Note that this is working even though it has not been invoked....
+  //removeTrajectoryToDom(); 
+
  
-}
+}//end of launch function
 
 //Listens for Launch button
 var click = document.getElementById('launchButton');
