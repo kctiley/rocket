@@ -91,6 +91,9 @@ var launch = function(){
           para.style.top = '500px';
           para.style.left = '380px';
 
+          var removeMessage = window.setTimeout(function(){
+            element.removeChild(para)
+          }, 4000);
 
         }
         else{
@@ -104,6 +107,13 @@ var launch = function(){
           para.style.position = 'absolute';
           para.style.top = '500px';
           para.style.left = '380px';
+
+          var removeMessage = window.setTimeout(function(){
+            element.removeChild(para)
+          }, 4000);
+
+
+
 
         }
       }
