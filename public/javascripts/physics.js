@@ -115,6 +115,13 @@ var launch = function(){
             element.removeChild(para)
           }, 4000);
 
+          var endGameFunct = function(){
+            console.log(document.getElementById('inputGamesPlayed').value);
+            document.getElementById('inputGamesPlayed').value = document.getElementById('inputGamesPlayed').value + 1;
+            document.getElementById('inputGamesWon').value = document.getElementById('inputGamesWon').value + 1;
+          }
+          endGameFunct();
+
         }
       }
       else {

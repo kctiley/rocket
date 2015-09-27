@@ -52,7 +52,12 @@ block content
 
   form(id='endGameForm', action='/rocket/playGame/' + thePlayer.name, method="post")
     div
-      input(type="text", name="addOneOrZero")
+      p Games Won
+      input(type="text", id="inputGamesWon", name="inputGamesWon", value= thePlayer.gamesWon)
+    div 
+      p Games Played 
+      input(type="text", id="inputGamesPlayed", name="inputGamesPlayed", value= thePlayer.gamesPlayed)
+    div
       button(type="submit", id= "endGame" style='background-color: purple; color: yellow') End Game
 
 
