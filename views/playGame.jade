@@ -48,7 +48,13 @@ block content
                 td(style='width: 100%; padding-top: 15px; text-align: center')
                   button(id= "launchButton" style='height: 16px; background-color: red; color:white; font-size: 26px; height: 100px; width: 100px; moz-border-radius: 50px; -webkit-border-radius: 50px') Launch
                 td
-                  button(id= "calcNewLaunchButton" style='background-color: green; color: white') Calculate new launch
+                  button(id= "misc" style='background-color: green; color: white') MISC
+
+  form(id='endGameForm', action='/rocket/playGame/' + thePlayer.name, method="post")
+    div
+      input(type="text", name="addOneOrZero")
+      button(type="submit", id= "endGame" style='background-color: purple; color: yellow') End Game
+
 
 
             

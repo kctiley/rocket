@@ -43,11 +43,13 @@ var launch = function(){
   }
   makeScreenSizeArr();
 
+  //Pull in angle and velocity values from DOM
   var velocity = document.getElementById('knobText').value / 100;
   console.log('KnobText value divided by 100:...........' + velocity);
   var angle = document.getElementById('angleText').value / 1;
   console.log('angleText value:...........' + angle);
 
+  //Calculate trajectory coords
   var g = 32;
   var trajectoryCoordinates = [];
   var maketrajectoryCoordinates = function(){  
@@ -112,9 +114,6 @@ var launch = function(){
           var removeMessage = window.setTimeout(function(){
             element.removeChild(para)
           }, 4000);
-
-
-
 
         }
       }

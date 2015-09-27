@@ -86,12 +86,16 @@ router.get('/rocket/delete/:_id', function(req, res, next){
   });
 });
 
-// router.post("/rocket/playGame/:_id", function(req, res, next){
-//   console.log('Route from playGame post working....');
-//   playersCollection.findOne({_id: req.params._id}, function(err, record){
-//     res.render('playGame', {title: "Fired!", thePlayer: record})
-//   })
-// })
+router.post("/rocket/playGame/:name", function(req, res, next){
+  console.log('Route from playGame post working....');
+  console.log('req.params.name......' + req.params.name);
+  console.log('req.body.addOneOrZero......' + req.body.addOneOrZero);
+  playersCollection.update({name: req.params.name}, {name: req.params.name, gamesWon: req.body.addOneOrZero, gamesPlayed: 2}, function(err, record){
+    playersCollection.findOne({name: req.params.name}, function(err, record){
+      res.render('show_user', {title: "Game stats updated!", thePlayer: record}); 
+    });   
+  });
+})
 
 
 
