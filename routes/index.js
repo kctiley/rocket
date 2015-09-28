@@ -1,4 +1,4 @@
-var db = require('monk')('localhost/player-demo');
+var db = require('monk')(process.env.MONGOLAB_URI || 'localhost/player-demo');
 var playersCollection = db.get('players');
 
 var express = require('express');
