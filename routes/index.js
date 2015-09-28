@@ -91,7 +91,7 @@ router.post("/rocket/playGame/:name", function(req, res, next){
   console.log('req.params.name......' + req.params.name);
   console.log('req.body.inputGamesWon......' + req.body.inputGamesWon);
   console.log('req.body.inputGamesPlayed......' + req.body.inputGamesPlayed);
-  playersCollection.update({name: req.params.name}, {name: req.params.name, gamesWon: req.body.inputGamesWon, gamesPlayed: req.body.inputGamesPlayed}, function(err, record){
+  playersCollection.update({name: req.params.name}, {gamesWon: req.body.inputGamesWon, gamesPlayed: req.body.inputGamesPlayed}, function(err, record){
     playersCollection.findOne({name: req.params.name}, function(err, record){
       res.render('show_user', {title: "Game stats updated!", thePlayer: record}); 
     });   
