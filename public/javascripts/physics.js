@@ -1,5 +1,7 @@
 console.log('PHYSICS JS.... ') 
 
+//Start count for number of attemps(each round)
+var countGameRound = 0;
 //Makes expanded array of coordinates from random centers generated
 var targetCoordinatesArray = [];
 var makeTargetAndAddToDom = function(centerX, centerY){
@@ -33,6 +35,7 @@ makeTargetAndAddToDom(genCenterXY[0], genCenterXY[1]);
 
 // }
 //Plots trajectory and launches based on knobText and angleText inputs
+var countGameRound = 0;
 var launch = function(){
   var screenSize = 200;//CHECK THIS TO SEE IF WORKING OR IF NOT EVEN NEEDED(PROB NOT?)
   var arrOfScreenSizes = [];
@@ -97,6 +100,20 @@ var launch = function(){
           var removeMessage = window.setTimeout(function(){
             element.removeChild(para)
           }, 4000);
+
+          //add 1 to game round count (track attempts)
+          countGameRound += 1;
+          if (countGameRound == 3){
+            var endLoseGameFunct = function(){
+              console.log(document.getElementById('inputGamesPlayed').value);
+              document.getElementById('inputGamesPlayed').value = Number(document.getElementById('inputGamesPlayed').value )+ 1;
+              document.getElementById('inputGamesWon').value = Number(document.getElementById('inputGamesWon').value) + 0;
+              var submitEndGameForm = window.setTimeout(function(){
+                document.forms["endGameForm"].submit();
+              }, 5000);
+            }
+            endLoseGameFunct();
+          }
 
         }
         else{
