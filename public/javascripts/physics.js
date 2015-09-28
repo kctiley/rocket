@@ -117,8 +117,11 @@ var launch = function(){
 
           var endGameFunct = function(){
             console.log(document.getElementById('inputGamesPlayed').value);
-            document.getElementById('inputGamesPlayed').value = document.getElementById('inputGamesPlayed').value + 1;
-            document.getElementById('inputGamesWon').value = document.getElementById('inputGamesWon').value + 1;
+            document.getElementById('inputGamesPlayed').value = Number(document.getElementById('inputGamesPlayed').value )+ 1;
+            document.getElementById('inputGamesWon').value = Number(document.getElementById('inputGamesWon').value) + 1;
+            var submitEndGameForm = window.setTimeout(function(){
+              document.forms["endGameForm"].submit();
+            }, 5000);
           }
           endGameFunct();
 
