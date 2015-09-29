@@ -2,9 +2,18 @@ extends layout
 
 block content
   h1= title
-  form(action="/rocket/edit/" + thePlayer.name, method="post")
+  form(action="/rocket/edit/" + thePlayer._id, method="post")
     div
-      p You may edit player name.
-      input(type="text" name="name_entered" id="newPlayerTextBox")
+      p Player Id 
+      input(type="text", name= "inputId", id="inputId" value = thePlayer._id)
+    div
+      p Player Name 
+      input(type="text" name="inputName" id="inputName" value = thePlayer.name)
+     div
+      p Player Wins
+        input(type="text", name= "inputWon", id="inputWon", value = thePlayer.gamesWon)
+    div
+      p Player Games Played 
+      input(type="text" name="inputPlayed" id="inputPlayed", value = thePlayer.gamesPlayed)      
     div
       input(type="submit" value= "Edit")

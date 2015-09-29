@@ -60,11 +60,11 @@ router.get('/rocket/edit/:name', function(req, res, next){
 });
 
 
-router.post('/rocket/edit/:name', function(req, res, next) {
-  console.log("req.params.name:  " + req.params.name);
-  console.log("req.body.name_entered:  " + req.body.name_entered);
-  playersCollection.update({name: req.params.name}, {name: req.body.name_entered}, function(err, record){
-    playersCollection.findOne({name: req.body.name_entered}, function(err, record){
+router.post('/rocket/edit/:_id', function(req, res, next) {
+  console.log("req.params._id:  " + req.params._id);
+  console.log("req.body.name_entered:  " + req.body.inputName);
+  playersCollection.update({_id: req.params._id}, {_id: req.params._id, name: req.body.inputName, gamesWon: req.body.inputWon, gamesPlayed: req.body.inputPlayed}, function(err, record){
+    playersCollection.findOne({_id: req.params._id}, function(err, record){
       res.render('show_user', { title: 'Your profile has been updated!', thePlayer: record});
     });  
   });
