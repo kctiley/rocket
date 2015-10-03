@@ -103,7 +103,7 @@ var launch = function(){
 
           //add 1 to game round count (track attempts)
           countGameRound += 1;
-          if (countGameRound == 3){
+          if (countGameRound == 7){
             var endLoseGameFunct = function(){
               console.log(document.getElementById('inputGamesPlayed').value);
               document.getElementById('inputGamesPlayed').value = Number(document.getElementById('inputGamesPlayed').value )+ 1;
